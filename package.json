@@ -29,7 +29,7 @@
   "koishi": {
     "description": {
       "en": "Daily 60s News Plugin",
-      "zh": "每日60s新闻插件(仅支持OneBot)"
+      "zh": "每日60s新闻插件"
     },
     "service": {
       "required": [
