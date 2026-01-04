@@ -1,4 +1,4 @@
-# @mashroomwolf/koishi-plugin-daily-news
+# @mashroomwolf/koishi-plugin-daynew
 
 [![npm](https://img.shields.io/npm/v/@mashroomwolf/koishi-plugin-daynew?style=flat-square)](https://www.npmjs.com/package/@mashroomwolf/koishi-plugin-daynew)
 
