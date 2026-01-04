@@ -8,7 +8,24 @@ export const inject = {
   optional: ["adapter-onebot"],
 };
 
-// export interface Config {}
+export const usage = `
+<h1>每日新闻</h1>
+
+<p>目前仅测试了 <b>Onebot</b> 协议</p>
+
+<p>仓库地址：<a href="https://github.com/snowwolfair/daynew">https://github.com/snowwolfair/daynew</a></p>
+
+<p style="color: #f39c12;">插件使用问题 / Bug反馈 请发 issue</p>
+
+
+<h2>食用方法</h2>
+
+<p>在 <b>发送信息配置</b> 中 <b style="color: #08b402ff;">添加项目</b>, 然后输入机器人所在群号即可</p>
+<p>若需要发送到多个群，可以继续添加项目</p>
+<hr>
+<p>本项目注册了一个名为 <b style="color: #f70404ff;">daily</b> 的命令，和定时任务发出的信息一样</p>
+<p>若不需要该命令，请在 <b style="color: #08b402ff;">指令管理</b> 中关闭</p>
+`;
 
 export const Config: Schema = Schema.intersect([
   Schema.object({
@@ -55,9 +72,9 @@ export const Config: Schema = Schema.intersect([
   Schema.object({
     Objective: Schema.array(
       Schema.object({
-        platform: Schema.union(["onebot"])
+        platform: Schema.union(["onebot", "qq", "discord", "telegram", "kook"])
           .default("onebot")
-          .description("目标平台(当前仅支持onebot)"),
+          .description("目标平台"),
         group: Schema.array(
           Schema.string().default("").description("目标群组")
         ).default([]),

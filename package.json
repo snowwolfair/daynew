@@ -10,6 +10,9 @@
   ],
   "license": "MIT",
   "homepage": "https://github.com/snowwolfair/daynew",
+  "bugs": {
+    "url": "https://github.com/snowwolfair/daynew/issues"
+  },
   "scripts": {},
   "keywords": [
     "chatbot",
@@ -26,7 +29,7 @@
   "koishi": {
     "description": {
       "en": "Daily 60s News Plugin",
-      "zh": "每日60s新闻插件"
+      "zh": "每日60s新闻插件(仅支持OneBot)"
     },
     "service": {
       "required": [
