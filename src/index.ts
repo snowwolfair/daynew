@@ -1,4 +1,4 @@
-import { Context, h, Schema, Session } from "koishi";
+import { Context, Schema } from "koishi";
 import {} from "koishi-plugin-cron";
 
 export const name = "daily-news";
@@ -15,7 +15,7 @@ export const usage = `
 
 <p>仓库地址：<a href="https://github.com/snowwolfair/daynew">https://github.com/snowwolfair/daynew</a></p>
 
-<p style="color: #f39c12;">插件使用问题 / Bug反馈 请发 issue</p>
+<p style="color: #f39c12;">插件使用问题 / Bug反馈 / 建议 请 添加企鹅群 156529412 或在仓库中发 issue </p>
 
 
 <h2>食用方法</h2>
@@ -76,9 +76,9 @@ export const Config: Schema = Schema.intersect([
           .default("onebot")
           .description("目标平台"),
         group: Schema.array(
-          Schema.string().default("").description("目标群组")
+          Schema.string().default("").description("目标群组"),
         ).default([]),
-      })
+      }),
     )
       .default([])
       .description("信息目标列表"),
@@ -86,15 +86,6 @@ export const Config: Schema = Schema.intersect([
 ]);
 
 export function apply(ctx: Context, config) {
-  // write your plugin here
-
-  // const UrlList = [
-  //   "https://60s.viki.moe/v2/60s",
-  //   "https://60api.09cdn.xyz/v2/60s",
-  //   "https://60s.zeabur.app/v2/60s",
-  //   "https://60s.crystelf.top/v2/60s",
-  // ];
-
   const UrlList = config.url.list;
 
   if (!config.daynews) return;
@@ -109,12 +100,12 @@ export function apply(ctx: Context, config) {
       // 每天早上 9 点执行
       const sendnewMessage = await sendNews(ctx, UrlList);
       const groupList = config.Objective.flatMap((item) =>
-        item.group.map((groupId) => `${item.platform}:${groupId}`)
+        item.group.map((groupId) => `${item.platform}:${groupId}`),
       );
       console.log(sendnewMessage, groupList);
       ctx.broadcast(groupList, sendnewMessage);
       // ctx.broadcast(["sandbox:z7lzin03zqg"], sendnewMessage);
-    }
+    },
   );
 
   ctx.command("daily").action(async ({ session }) => {
