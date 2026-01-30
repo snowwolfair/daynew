@@ -108,7 +108,7 @@ export function apply(ctx: Context, config) {
     },
   );
 
-  ctx.command("daily").action(async ({ session }) => {
+  ctx.command("daily", "每日60s新闻").action(async ({ session }) => {
     for (const url of UrlList) {
       try {
         await session.send(await sendNews(ctx, UrlList));
